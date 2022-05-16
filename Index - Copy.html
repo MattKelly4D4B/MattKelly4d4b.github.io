@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<title>Matt's Resume Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+  body {text-align: center;}
+
+  input{width: 100px;
+        height: 100px;
+      position: static;}
+
+</style>
+
+<body class="w3-light-grey">
+
+<!-- Background Container -->
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+
+      <div class="w3-bar w3-teal">
+        <a href="index.html" class="w3-bar-item w3-button">Home</a>
+        <a href="resume.html" class="w3-bar-item w3-button">Experience</a>
+        <a href="TicTacToe.html" class="w3-bar-item w3-button">Tic-Tac-Toe</a>
+        <a href="#" class="w3-bar-item w3-button">Link 3</a>
+  </div>
+  <div class="w3-center">
+      <h1>
+        Tic Tac Toe!
+      </h1>
+
+      <h5><a href="javascript:location.reload(true)">Refresh this page</a></h5>
+
+      <input type="button" id= "button1" value=" ">
+      <input type="button" id= "button2" value=" ">
+      <input type="button" id= "button3" value=" ">
+    <br>
+      <input type="button" id= "button4" value=" ">
+      <input type="button" id= "button5" value=" ">
+      <input type="button" id= "button6" value=" ">
+    <br>
+      <input type="button" id= "button7" value=" ">
+      <input type="button" id= "button8" value=" ">
+      <input type="button" id= "button9" value=" ">
+
+      <h3 id="winnerString"></h3>
+
+
+
+
+
+      <script>
+      var XButtons = [];
+      var OButtons = [];
+      var gameCounter = 0;
+
+      window.onload = myMain;
+
+      function myMain() {
+        document.getElementById("button1").onclick = myButton;
+        document.getElementById("button2").onclick = myButton;
+        document.getElementById("button3").onclick = myButton;
+        document.getElementById("button4").onclick = myButton;
+        document.getElementById("button5").onclick = myButton;
+        document.getElementById("button6").onclick = myButton;
+        document.getElementById("button7").onclick = myButton;
+        document.getElementById("button8").onclick = myButton;
+        document.getElementById("button9").onclick = myButton;
+      }
+
+      function usedAlready(currentButton)
+      {
+        var wasUsed = false
+
+        if(XButtons.includes(currentButton) || OButtons.includes(currentButton))
+        {
+          wasUsed = true;
+          alert('Already used. Pick another Square.');
+        }
+        return wasUsed;
+      }
+
+      function checkForWinner()
+      {
+        var winnerString = "";
+///////////HORIZONTAL WINS////////////////////
+          if (XButtons.includes('button1') && XButtons.includes('button2') && XButtons.includes('button3'))
+          {
+            winnerString = "The winner is: X!";
+          }
+          else if(XButtons.includes('button4') && XButtons.includes('button5') && XButtons.includes('button6'))
+          {
+            winnerString = "The winner is: X!";
+          }
+          else if(XButtons.includes('button7') && XButtons.includes('button8') && XButtons.includes('button9'))
+          {
+            winnerString = "The winner is: X!";
+          }
+          else if (OButtons.includes('button1') && OButtons.includes('button2') && OButtons.includes('button3'))
+          {
+            winnerString = "The winner is: O!";
+          }
+          else if(OButtons.includes('button4') && OButtons.includes('button5') && OButtons.includes('button6'))
+          {
+            winnerString = "The winner is: O!";
+          }
+          else if(OButtons.includes('button7') && OButtons.includes('button8') && OButtons.includes('button9'))
+          {
+            winnerString = "The winner is: O!";
+          }
+
+////////VERTICAL WINS/////////////
+
+          if (XButtons.includes('button1') && XButtons.includes('button4') && XButtons.includes('button7'))
+          {
+            winnerString = "The winner is: X!";
+          }
+          else if(XButtons.includes('button2') && XButtons.includes('button5') && XButtons.includes('button8'))
+          {
+            winnerString = "The winner is: X!";
+          }
+          else if(XButtons.includes('button3') && XButtons.includes('button6') && XButtons.includes('button9'))
+          {
+            winnerString = "The winner is: X!";
+          }
+          else if (OButtons.includes('button1') && OButtons.includes('button4') && OButtons.includes('button7'))
+          {
+            winnerString = "The winner is: O!";
+          }
+          else if(OButtons.includes('button2') && OButtons.includes('button5') && OButtons.includes('button8'))
+          {
+            winnerString = "The winner is: O!";
+          }
+          else if(OButtons.includes('button3') && OButtons.includes('button6') && OButtons.includes('button9'))
+          {
+            winnerString = "The winner is: O!";
+          }
+
+//////////////diagonal wins/////////////
+
+          if (XButtons.includes('button1') && XButtons.includes('button5') && XButtons.includes('button9'))
+          {
+            winnerString = "The winner is: X!";
+          }
+          else if(XButtons.includes('button3') && XButtons.includes('button5') && XButtons.includes('button7'))
+          {
+            winnerString = "The winner is: X!";
+          }
+          else if(OButtons.includes('button1') && OButtons.includes('button5') && OButtons.includes('button9'))
+          {
+            winnerString = "The winner is: O!";
+          }
+          else if(OButtons.includes('button3') && OButtons.includes('button5') && OButtons.includes('button7'))
+          {
+            winnerString = "The winner is: O!";
+          }
+        var answerText = document.getElementById('winnerString');
+
+        answerText.innerHTML = winnerString;
+      }
+
+      function myButton(e) {
+//////////////////////////BUTTON 1///////////////////////////////////////
+        if (e.target.id == 'button1')
+        {
+          if(!usedAlready(e.target.id))
+          {
+            if (gameCounter % 2 == 0)
+            {
+              var buttonChosen = document.getElementById("button1");
+              XButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "X";
+            }
+            else
+            {
+              var buttonChosen = document.getElementById("button1");
+
+              OButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "O";
+            }
+          }
+        }
+//////////////////////////BUTTON 2///////////////////////////////////////
+        else if (e.target.id == 'button2')
+        {
+          if(!usedAlready(e.target.id))
+          {
+            if (gameCounter % 2 == 0)
+            {
+              var buttonChosen = document.getElementById("button2");
+
+              XButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "X";
+            }
+
+            else
+            {
+              var buttonChosen = document.getElementById("button2");
+
+              OButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "O";
+            }
+          }
+        }
+        //////////////////////////BUTTON 3///////////////////////////////////////
+        else if (e.target.id == 'button3')
+        {
+          if(!usedAlready(e.target.id))
+          {
+            if (gameCounter % 2 == 0)
+            {
+              var buttonChosen = document.getElementById("button3");
+
+              XButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "X";
+            }
+
+            else
+            {
+              var buttonChosen = document.getElementById("button3");
+
+              OButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "O";
+            }
+          }
+        }
+        //////////////////////////BUTTON 4///////////////////////////////////////
+        else if (e.target.id == 'button4')
+        {
+          if(!usedAlready(e.target.id))
+          {
+            if (gameCounter % 2 == 0)
+            {
+              var buttonChosen = document.getElementById("button4");
+
+              XButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "X";
+            }
+
+            else
+            {
+              var buttonChosen = document.getElementById("button4");
+
+              OButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "O";
+            }
+          }
+        }
+        //////////////////////////BUTTON 5///////////////////////////////////////
+        else if (e.target.id == 'button5')
+        {
+          if(!usedAlready(e.target.id))
+          {
+            if (gameCounter % 2 == 0)
+            {
+              var buttonChosen = document.getElementById("button5");
+
+              XButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "X";
+            }
+
+            else
+            {
+              var buttonChosen = document.getElementById("button5");
+
+              OButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "O";
+            }
+          }
+        }
+        //////////////////////////BUTTON 6///////////////////////////////////////
+        else if (e.target.id == 'button6')
+        {
+          if(!usedAlready(e.target.id))
+          {
+            if (gameCounter % 2 == 0)
+            {
+              var buttonChosen = document.getElementById("button6");
+
+              XButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "X";
+            }
+
+            else
+            {
+              var buttonChosen = document.getElementById("button6");
+
+              OButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "O";
+            }
+          }
+        }
+        //////////////////////////BUTTON 7///////////////////////////////////////
+        else if (e.target.id == 'button7')
+        {
+          if(!usedAlready(e.target.id))
+          {
+            if (gameCounter % 2 == 0)
+            {
+              var buttonChosen = document.getElementById("button7");
+
+              XButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "X";
+            }
+
+            else
+            {
+              var buttonChosen = document.getElementById("button7");
+
+              OButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "O";
+            }
+          }
+        }
+        /////////////////////////BUTTON 8///////////////////////////////////////
+        else if (e.target.id == 'button8')
+        {
+          if(!usedAlready(e.target.id))
+          {
+            if (gameCounter % 2 == 0)
+            {
+              var buttonChosen = document.getElementById("button8");
+
+              XButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "X";
+            }
+
+            else
+            {
+              var buttonChosen = document.getElementById("button8");
+
+              OButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "O";
+            }
+          }
+        }
+        //////////////////////////BUTTON 9///////////////////////////////////////
+        else if (e.target.id == 'button9')
+        {
+          if(!usedAlready(e.target.id))
+          {
+            if (gameCounter % 2 == 0)
+            {
+              var buttonChosen = document.getElementById("button9");
+
+              XButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "X";
+            }
+
+            else
+            {
+              var buttonChosen = document.getElementById("button9");
+
+              OButtons.push(e.target.id);
+              gameCounter++;
+              buttonChosen.value = "O";
+            }
+          }
+        }
+
+        checkForWinner();
+      }
+    </script>
+
+
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+  <p>Website styles powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+</body>
+</html>
