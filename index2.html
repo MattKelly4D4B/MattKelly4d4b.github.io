@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Matt's Porfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  </head>
+
+  <style>
+    @font-face {
+      font-family: pFont;
+      src: url(Assets/Fonts/DS-DIGI.TTF);
+    }
+
+    @font-face {
+      font-family: hFont;
+      src: url(Assets/Fonts/DS-DIGIB.TTF);
+    }
+
+    p,a{
+      font-family: pFont;
+      font-size: x-large;
+    }
+
+    h2 {
+      font-family: hFont;
+      font-size: xxx-large;
+    }
+  </style>
+
+  <body class="w3-content" style="max-width: 1300px">
+    <!-- First Grid: Logo & About -->
+    <div class="w3-row">
+      <div
+        class="w3-half w3-black w3-container w3-center"
+        style="height: 700px"
+      >
+      <h2>Matt Kelly's Portfolio</h2>
+      <h2>About Me</h2>
+      <div class="w3-left-align w3-padding-large">
+        <p>
+          Lorem ipusm sed vitae justo condimentum, porta lectus vitae,
+          ultricies congue gravida diam non fringilla.
+        </p>
+        <p>
+          Lorem ipusm sed vitae justo condimentum, porta lectus vitae,
+          ultricies congue gravida diam non fringilla.
+        </p>
+      </div>
+        
+      </div>
+      <div class="w3-half w3-blue-grey w3-container" style="height: 700px">
+        <div class="w3-padding-64 w3-center">
+    
+          <img
+            src="Assets/Images/computerLogo_Black.jpg"
+            class="w3-margin w3-circle"
+            alt="Person"
+            style="width: 50%"
+          />
+
+          <h2>Table of Contents</h2>
+
+          <div class="w3-padding-10">
+            <a
+              href="#"
+              class="w3-button w3-blue-grey w3-block w3-hover-blue-grey w3-padding-16"
+              >Home</a
+            >
+            <a
+              href="#work"
+              class="w3-button w3-blue-grey w3-block w3-hover-indigo w3-padding-16"
+              >My Work</a
+            >
+            <a
+              href="#work"
+              class="w3-button w3-blue-grey w3-block w3-hover-teal w3-padding-16"
+              >Resume</a
+            >
+            <a
+              href="#tictactoe"
+              class="w3-button w3-blue-grey w3-block w3-hover-brown w3-padding-16"
+              >Tic-Tac-Toe</a
+            >
+          </div>
+
+
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Grid: Work & Resume -->
+    <div class="w3-row">
+      <div
+        class="w3-half w3-pale-red w3-center"
+        style="min-height: 800px"
+        id="work"
+      >
+        <div class="w3-padding-32">
+          <h2>My Work</h2>
+
+          <p>
+            Here are some of my latest projects. </br> Hover over one of the images
+            to learn more!
+          </p>
+        </div>
+        <style>
+          .container {
+            position: relative;
+            width: 50%;
+          }
+          
+          .image {
+            display: block;
+            width: 100%;
+            height: auto;
+          }
+          
+          .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0%;
+            transition: .5s ease;
+            background-color: rgb(255, 235, 235);
+          }
+          
+          .container:hover .overlay {
+            opacity: 75%;
+          }
+
+
+          .text {
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-family: hFont;
+            font-size: xx-large;
+          }
+          </style>
+
+        
+        <div class="w3-row">
+          <div class="w3-half container">
+            <img
+              src="Assets/images/3d printing.jpg" style="width: 100%;" 
+            class="image"/>
+            <div class="overlay">
+              <div class="text">3D Printing</div>
+            </div>   
+          </div>
+          <div class="w3-half container">
+            <img src="Assets/images/coding.jpg" style="width: 100%;"/>
+            <div class="overlay">
+              <div class="text">Software Development</div>
+            </div>   
+          </div>
+        </div>
+        <div class="w3-row w3-hide-small">
+          <div class="w3-half container">
+            <img src="Assets/images/kauda arm.jpg" style="width: 100%;" />
+            <div class="overlay">
+              <div class="text">KAUDA </br>Robotic Arm</div>
+            </div>   
+          </div>
+        <div class="w3-half container">
+            <img src="Assets/images/Sculpture.jpg" style="width: 100%;"/>
+            <div class="overlay">
+              <div class="text">Kinetic Sculpture</div>
+            </div>   
+          </div>
+        </div>
+        <br />
+      </div>
+      <div class="w3-half w3-indigo w3-container" style="min-height: 800px">
+        <div class="w3-padding-64 w3-center">
+          <h2>Resume</h2>
+          <p>A draft from my CV</p>
+          <div class="w3-container w3-responsive">
+            <table class="w3-table">
+              <tr>
+                <th>Year</th>
+                <th>Title</th>
+                <th>Where</th>
+              </tr>
+              <tr class="w3-white">
+                <td>2012-2016</td>
+                <td>The rest is history..</td>
+                <td>Lorem ipsum</td>
+              </tr>
+              <tr>
+                <td>2009-2012</td>
+                <td>Started my own company</td>
+                <td>My Garage</td>
+              </tr>
+              <tr class="w3-white">
+                <td>2008-2009</td>
+                <td>Started working for Lorem</td>
+                <td>London, UK</td>
+              </tr>
+              <tr>
+                <td>2005-2008</td>
+                <td>Degree in Bachelor of Design</td>
+                <td>Harvard, USA</td>
+              </tr>
+              <tr class="w3-white">
+                <td>2002-2005</td>
+                <td>Degree in Bachelor of Business</td>
+                <td>RMIT University, Melbourne, Australia</td>
+              </tr>
+              <tr class="w3-hide-medium">
+                <td>2002-2005</td>
+                <td>Degree in Bachelor of Business</td>
+                <td>RMIT University, Melbourne, Australia</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Third Grid -->
+    <div class="w3-row" id="tictactoe">
+      <div
+        class="w3-half w3-dark-grey w3-container w3-center"
+        style="height: 700px"
+      >
+        <div class="w3-padding-64">
+          <h2>Tic-Tac-Toe</h2>
+        </div>
+          <div id="gameDiv">
+
+          </div>
+          <script src="Scripts/minimax.js"></script>
+          <script src="Scripts/TicTacToe.js">setup();</script>
+
+          <h2 class="w3-container" id="resultText">
+          </h2>
+
+          <h5><a href="javascript:location.reload(true)">Refresh this page to try again!</a></h5>
+      </div>
+            
+      <div class="w3-half w3-teal w3-container" style="height: 700px">
+        <div class="w3-padding-64 w3-padding-large">
+          <h2>If you've made it this far...</h2>
+          <p class="w3-opacity">GET IN TOUCH</p>
+          <form
+            class="w3-container w3-card w3-padding-32 w3-white"
+            action="/action_page.php"
+            target="_blank"
+          >
+            <div class="w3-section">
+              <label>Name</label>
+              <input
+                class="w3-input"
+                style="width: 100%"
+                type="text"
+                required
+                name="Name"
+              />
+            </div>
+            <div class="w3-section">
+              <label>Email</label>
+              <input
+                class="w3-input"
+                style="width: 100%"
+                type="text"
+                required
+                name="Email"
+              />
+            </div>
+            <div class="w3-section">
+              <label>Message</label>
+              <input
+                class="w3-input"
+                style="width: 100%"
+                type="text"
+                required
+                name="Message"
+              />
+            </div>
+            <button type="submit" class="w3-button w3-teal w3-right">
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-black w3-padding-16">
+      <p>
+        Powered by
+        <a href="https://www.w3schools.com/w3css/default.asp" target="_blank"
+          >w3.css</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
