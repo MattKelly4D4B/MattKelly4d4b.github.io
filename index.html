@@ -1,190 +1,598 @@
 <!DOCTYPE html>
 <html>
-<title>Matt's Resume Page</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <head>
+    <title>Matt's Porfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/randomColor.js"></script>
+    <link href="github-widget/github-widget.css" rel="stylesheet" type="text/css" />
+    
 <style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-</style>
-<body class="w3-light-grey">
+      
+      .container {
+        position: relative;
+        width: 50%;
+      }
 
-<!-- Background Container -->
+    
+      body {
+        overflow: hidden;
+        /* background: 
+          radial-gradient(circle at bottom, #fff -30%, transparent 70%),
+          linear-gradient(to right, #134a8e, #00b6f1 50%),
+          #fff; */
+        background: radial-gradient(circle at bottom, #fff, transparent 80%), linear-gradient(to top, dodgerblue 0%, transparent 70%), linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.4) 70%), #1e90ff;
+        -webkit-animation: bg 50s infinite;
+                animation: bg 50s infinite;
+      }
 
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+      @-webkit-keyframes bg {
+        0%, 10% {
+          background-color: #1e90ff;
+        }
+        25% {
+          background-color: #39d24a;
+        }
+        50% {
+          background-color: #ffe244;
+        }
+        75% {
+          background-color: #ff36a3;
+        }
+      }
 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
+      @keyframes bg {
+        0%, 100% {
+          background-color: #1e90ff;
+        }
+        25% {
+          background-color: #39d24a;
+        }
+        50% {
+          background-color: #ffe244;
+        }
+        75% {
+          background-color: #ff36a3;
+        }
+      }
 
-    <!-- Left Column -->
-    <div class="w3-third">
 
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
+      .aboutme{
+        border-top-left-radius: 50px 100px;
+        border-top-right-radius: 50px 100px;
+        border-bottom-left-radius: 20px 110px;
+        border-bottom-right-radius: 20px 110px;
+
+        display: block;
+        position: relative;
+        border: solid 3px #6e7491;
+        background-color: white;
+        color: black;
+        margin: 5%;
+      
+        box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+      }
 
 
+      .image {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      
+      .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0%;
+        transition: .5s ease;
+        background-color: rgb(255, 235, 235);
+      }
+      
+      .container:hover .overlay {
+        opacity: 75%;
+      }
+
+
+      .text {
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-family: hFont;
+        font-size: xx-large;
+      }
+
+    @font-face {
+      font-family: hFont;
+      src: url(Assets/Fonts/DS-DIGIB.TTF);
+    }
+
+    .mySlides {display:none}
+
+    #heading {
+      font-family: hFont;
+    }
+
+
+    a:link { text-decoration: none; }
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: none; }
+    a:active { text-decoration: none; }
+
+
+
+
+    .boxBorder1 {
+      border-left: 3px solid black;
+      border-right: 3px solid black;
+      border-top: 3px solid black;
+      border-bottom: 3px solid black;
+      border-radius: 2%;
+    }
+    .boxBorder2 {
+      border-right: 3px solid black;
+      border-top: 3px solid black;
+      border-bottom: 3px solid black;
+      border-left: 3px solid black;
+      border-radius: 2%;
+    }
+    .boxBorder3 {
+      border-left: 3px solid black;
+      border-right: 3px solid black;
+      border-bottom: 3px solid black;
+      border-radius: 2%;
+    }
+    .boxBorder4 {
+      border-right: 3px solid black;
+      border-radius: 2%;
+      border-left: 3px solid black;
+
+    }
+    .boxBorder5 {
+      border-left: 3px solid black;
+      border-bottom: 3px solid black;
+      border-right: 3px solid black;
+
+      border-radius: 2%;
+    }
+    .boxBorder6 {
+      border-right: 3px solid black;
+      border-left: 3px solid black;
+      border-bottom: 3px solid black;
+      border-top: 3px solid black;
+      border-radius: 2%;
+    }
+    
+    
+    
+    
+    
+    .border1{
+        background:rgb(220, 220, 220);
+        border: solid black;
+        border-color: black;
+        margin-top: 3%;
+      }
+      .border2{
+        border-width: 3px 3px 5px 5px;
+        border-radius:4% 95% 6% 95%/95% 4% 92% 5%;
+      }
+      .border3{
+        border-width: 3px 3px 5px 5px;
+        border-radius:6% 42% 4% 96%/96% 5% 96% 4%;
+      }
+      .border4{
+        border-width: 3px 3px 5px 5px;
+        border-radius:95% 4% 89% 5%/4% 92% 6% 95%;
+      }
+      .border5{
+        border-width: 3px 3px 5px 5px;
+        border-radius:99% 10% 25% 8%/4% 92% 6% 95%;
+      }
+      .border6{
+        border-width: 3px 3px 5px 5px;
+        border-radius:95% 5% 99% 3%/4% 97% 7% 97%;
+      }
+      .borderTOC{
+        border-width: 2px 4px 2px 4px;
+        border-radius:4% 95% 6% 95%/95% 4% 92% 5%;
+      }
+
+    </style>
+
+  </head>
+
+
+
+  <body class="w3-content" style="max-width: 1300px">
+
+    <!-- First Grid: About & Projects -->
+    <div class="w3-row">
+      <div
+        class="w3-half box1 w3-container boxBorder1" 
+        style="height: 700px;"
+        >
+      <div onClick="document.location.reload(true)"
+         class="border1 border4"
+        style="padding: 5%; font-size: 14px;">
+        <h2><center><b><em>About Me:</em></b></center></h2>
+        <p>
+          Hey, first off, <b>refresh</b> the page...or just click this box to refresh too.
+        </p>
+        <p> 
+          Ahhh, much better... right?<br>I couldnt decide on a background color, so I <b>tastefully</b> randomized them all
+          </p>
+          
+          <p>I'm <b>Matt Kelly</b>, I would describe myself as a <b>hard-working</b> enthusiastic,
+          technology driven, software engineering graduate seeking 
+          opportunities in <b>software development, maintenance,
+          and testing</b>.
+        </p>
+        <p>
+          The <b>ideal</b> position for me would be something that helps me to <b>evolve</b> as a software engineer
+          and allows me to <b>form a strong foundation</b> in the technologies used by engineers throughout the world.
+        </p>
+        <p>
+          I'm a <b>very upbeat</b> person and always am willing to throw myself at unknown problems with <b>no hesitation.</b>
+          By nature I would say I'm a tinkerer so I <b>enjoy challenges</b>. Building things, coding them and making
+          everything work how I want it to is really rewarding to me.
+          </p>
+          <p>
+            I am really fond of <b>3d printing</b>, both the software and hardware aspects of
+            modifying printers and building one to suit your needs.  I'm experienced with <b>soldering</b> and <b>wiring</b> components,
+            as well as <b>Arduinos, Raspberry Pi's, and basic linux</b>.
+          </p>
+          
+          </p>
+          <p>
+            Overall, I know <b>I have what it takes</b> to do great at any company I work for.
+            I'm a <b>hard worker</b>, and live this lifestyle <b>every day</b> at home working my own hobbies and interests.
+          </p>
         </div>
-        <div class="w3-container">
-          <h2>Matthew Kelly</h2>
-          <!---<img src="/w3images/avatar_hat.jpg" style="width:100%" alt="Avatar"> -->
-          <div class="w3-display-bottomleft w3-container w3-text-black"></div>
+        
+      </div>
 
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Software Engineering Graduate</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Florida, USA</p>
-          <hr>
+      
+      <div class="w3-half box2 w3-container boxBorder2" style="height: 700px">
+        <div class="w3-center">
+          <div
+         class="border1 border3"
+        style="padding: 8%; margin: 3%; font-size: 14px;">
+          <img
+            src="Assets/Images/computerLogo_Black.jpg"
+            class="w3-margin w3-circle"
+            style="width: 40%;"
+          />
 
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-          <p>Software Development</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:85%">85%</div>
+          <h2><center><b><em>Table of Contents</em></b></center></h2>
+          <a
+          href="#work"
+          class="w3-button w3-block w3-hover-orange border1 borderTOC"
+          ><h4><b>My Work</b></h4></a
+        >
+
+            <a
+              href="#work"
+              class="w3-button w3-block w3-hover-khaki border1 borderTOC"
+              ><h4><b>Resume</b></h4></a
+            >
+            <a
+              href="#tictactoe"
+              class="w3-button w3-block w3-hover-teal border1 borderTOC"
+              ><h4><b>Tic-Tac-Toe</b></h4></a
+            >
+
+            <a
+            href="#contact"
+            class="w3-button w3-block w3-hover-indigo border1 borderTOC"
+            ><h4><b>Contact</b></h4></a
+          >
           </div>
-          <p>Web Design and Development</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
-              <div class="w3-center w3-text-white">80%</div>
+
+
+          
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Grid: Work & Resume -->
+    <div class="w3-row">
+      <div
+        class="w3-half box3 w3-center boxBorder3"
+        style="min-height: 800px"
+        id="work"
+      >
+      <div
+         class="border1 border2"
+        style="padding: 5%; margin: 3%; font-size: 14px;">
+        <div class="w3-padding-16">
+          <h2><center><b><em>My Work</em></b></center></h2>
+
+          <h4>
+            Here are some of my latest projects. </br> Hover over one of the images
+            to learn more!
+          </h4>
+
+            <h6>
+              (Open all 4 for a suprise!)
+            </h6>
+            <h6>
+              (Dont worry, it'll open in a new tab...)
+            </h6>
+        </div>
+        
+        <div class="w3-row ">
+          <div class="w3-half container">
+            <img
+              src="Assets/images/3d printing.jpg" style="width: 100%;" 
+            class="image"/>
+            <div class="overlay">
+              <a href="https://github.com/MattKelly4D4B/3D-Printing"  id="link" class="text" target="_blank" onclick="link1Clicked()">3D Printing</a>
+            </div>   
+          </div>
+          <div class="w3-half container">
+            <img src="Assets/images/coding.jpg" style="width: 100%;"/>
+            <div class="overlay">
+              <a href="https://github.com/MattKelly4D4B" class="text" target="_blank" id="link" onclick="link2Clicked()">Software Projects</a>
+            </div>   
+          </div>
+        </div>
+        <div class="w3-row w3-hide-small">
+          <div class="w3-half container">
+            <img src="Assets/images/kauda arm.jpg" style="width: 100%;" />
+            <div class="overlay">
+              <a href="https://github.com/MattKelly4D4B/3D-Printing/tree/main/Kauda%20Arm" class="text" target="_blank" id="link" onclick="link3Clicked()">Kauda Robotic Arm</a>
+            </div>   
+          </div>
+        <div class="w3-half container">
+            <img src="Assets/images/Sculpture.jpg" style="width: 100%;"/>
+            <div class="overlay">
+              <a href="https://github.com/MattKelly4D4B/3D-Printing/tree/main/Kinetic%20Sculpture" class="text" target="_blank" id="link" onclick="link4Clicked()">Kinetic Sculpture</a>
+            </div>   
+          </div>
+        </div>
+        <br /><br /><br />
+      </div>
+
+      </div>
+
+      <script>
+
+        var counter = 4;
+        var l1 = false;
+        var l2 = false;
+        var l3 = false;
+        var l4 = false;
+        
+       
+        function link1Clicked() {
+        if (l1 == false){
+          counter--
+          if (counter == 0)
+          {
+            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+          }
+          else{
+          alert(counter + " clicks remaining!");
+          l1 = true
+          }
+        }
+        }
+
+        function link2Clicked() {
+        if (l2 == false){
+          counter--
+          if (counter == 0)
+          {
+            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+          }
+          else{
+          alert(counter + " clicks remaining!");
+          l2 = true;
+        }
+        }
+      }
+
+        function link3Clicked() {
+        if (l3 == false){
+          counter--
+          if (counter == 0)
+          {
+            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+          }
+          else{
+          alert(counter + " clicks remaining!");
+          l3 = true;
+        }
+        }
+      }
+
+        function link4Clicked() {
+        if (l4 == false){
+          counter--
+          if (counter == 0)
+          {
+            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+          }
+          else{
+          alert(counter + " clicks remaining!");
+          l4 = true;
+        }
+        }
+      }
+
+        </script>
+
+
+      <div class="w3-half box4 w3-container boxBorder4" style="min-height: 800px">
+        <div
+         class="border1 border6"
+        style="padding: 5%; margin: 2%;">
+        <div class="w3-center">
+          <h2><center><b><em>Resume</em></b></center></h2>
+          
+          <div class="w3-left-align">
+            <hr style="border-color: black;">
+              <p><b> March 2022, B.S., Software Engineering, Keiser University GPA: 3.5</b>
+                
+              <li style="font-size:small;">Programming Languages: C, C#, Java, JavaScript, Kotlin, SQL</li>
+              <li style="font-size:small;">Operating Systems: Windows 10, Linux</li>
+              <li style="font-size:small;">Web-based Development: HTML, CSS, REACT, Node.js, MongoDB</li>
+              <li style="font-size:small;">Software IDEs: Eclipse, JavaBeans, Intellij, JGrasp, Android Studio </li>
+              </br>
+              <center><b>Specialized Courses:</b></center>
+
+              <ul class="w3-left-align" style="columns:2; font-size:small;">
+                <li>Software Design</li>
+                <li>Software Testing</li>
+                <li>Specifications of Software Systems</li>
+                <li>Web Software Development</li>
+                <li>Parallel Processing</li>
+                <li>Distributed Systems</li>
+                <li>Mobile Application Development</li>
+                <li>Human-Computer Interface Design</li>
+                <li>Cloud Computing</li>
+                </ul>
+              </div>
+          <b> October 2017–July 2019, Cell Phone Repair Technician <br>(2 separate companies)</b>
+            <ul class="w3-left-align" style="columns:2; font-size:small;" >
+            <li>Fixed 10-20+ devices per day.</li>
+            <li>Managed eBay sales and purchases.</li>
+            <li>Managed store inventory to ensure proper stock.</li>
+            <p>These roles taught me valuable troubleshooting skills that have carried over into activities that I enjoy on my free time.  Being able to diagnose hardware effectively is a valuable skill.</p>
+          </ul>  
+          </p>
+          <p><b>Hobbies:</b></p>
+          <ul class="w3-left-align" style="columns:2; font-size:small;">
+          <li>3D printing hardware</li> <li>3D printing software</li> <li>Programming Arduino boards</li>  <li>Building and repairing drones</li><li>LED programming</li><li>Innovative technology</li>
+        </ul>
+
+         </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- Third Grid -->
+    <div class="w3-row" id="tictactoe">
+      <div
+        class="w3-half box5 w3-container w3-center boxBorder5"
+        style="height: 700px"
+      >
+
+      <div
+      class="border1 border3 w3-center"
+     style="padding: 5%; margin: 3%; margin-top: 8%;">
+
+        <div class="w3-padding-32">
+          
+          <h2><center><b><em>Tic-Tac-Toe</em></b></center></h2>
+
+          <p>This game is controlled by an UNBEATABLE AI...Good Luck</p>
+        </div>
+          <div id="gameDiv">
+
+          </div>
+          <script src="Scripts/minimax.js"></script>
+          <script src="Scripts/TicTacToe.js">setup();</script>
+
+          <h2 class="w3-container" id="resultText">
+          </h2>
+
+          <h5><a href="javascript:location.reload(true)">Refresh this page to try again!</a></h5>
+          </div>
+     
+        </div>
+      <div class="w3-half box6 w3-container boxBorder6" style="height: 700px">
+        
+        <div class="w3-padding-32 w3-padding-large">
+          <div
+      class="border1 border5 w3-center"
+     style="padding: 8%; margin: 0%;">
+          <h2><center><b><em>If you've made it this far...</em></b></center></h2>
+          <p>GET IN TOUCH WITH ME!</p>
+          <p>Ill buy you lunch and we can chat.  I love meeting like minded people who are into technology just as much as I am, and it always makes for some interesting conversations.</p>
+
+          <br>
+          <p>Also heres more links to my GitHub repos:</p>
+          <br>
+
+          <div class="w3-content w3-center" style="max-width:800px">
+              <a href="https://github.com/MattKelly4D4B/My-Favorite-Projects" class="mySlides" target="_blank"><img src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/MattKelly4D4B/My-Favorite-Projects.png" width="460px"></a>
+              <a href="https://github.com/MattKelly4D4B/3D-Printing" class="mySlides" target="_blank"><img src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/MattKelly4D4B/3D-Printing.png" width="460px"></a>
+              <a href="https://github.com/MattKelly4D4B/Noteworthy-Projects" class="mySlides" target="_blank"><img src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/MattKelly4D4B/Noteworthy-Projects.png" width="460px"></a>
+              <a href="https://github.com/MattKelly4D4B/Simple-Java-Projects" class="mySlides" target="_blank"><img src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/MattKelly4D4B/Simple-Java-Projects.png" width="460px"></a>
+              <a href="https://github.com/MattKelly4D4B/Simple-C-Projects" class="mySlides" target="_blank"><img src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/MattKelly4D4B/Simple-C-Projects.png" width="460px"></a>
+
+          </div>
+          
+          <div class="w3-center">
+            <div class="w3-section">
+              <button class="w3-button w3-dark-grey" onclick="plusDivs(-1)">❮ Prev</button>
+              <button class="w3-button w3-dark-grey" onclick="plusDivs(1)">Next ❯</button>
             </div>
-          </div>
-          <p>Diagnosing and Troubleshooting</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
-          </div>
-          <p>Computer and Mobile Hardware</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:55%">55%</div>
-          </div>
-          <br>
 
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Software Development Skills</b></p>
-          <p>Java</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:90%"></div>
-          </div>
-          <p>HTML/CSS/Javascript</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:85%"></div>
-          </div>
-          <p>Software Design / Testing</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:70%"></div>
-          </div>
-          <p>Mobile Application Development</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:65%"></div>
-          </div>
-          <p>C/C#</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:50%"></div>
-          </div>
-          <p>Logical Thinking</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:75%"></div>
-          </div>
-          <br>
+          <script>
+          var slideIndex = 1;
+          showDivs(slideIndex);
+          
+          function plusDivs(n) {
+            showDivs(slideIndex += n);
+          }
+          
+          function currentDiv(n) {
+            showDivs(slideIndex = n);
+          }
+          
+          function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+              x[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" w3-red", "");
+            }
+            x[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " w3-red";
+          }
+          </script>
+          
         </div>
-      </div><br>
-
-    <!-- End Left Column -->
+        </div>
+      </div>
     </div>
-
-    <!-- Right Column -->
-    <div class="w3-twothird">
-    <!--navigation bar -->
-
-
-      <div class="w3-bar w3-teal">
-        <a href="mattkelly4d4b.github.io" class="w3-bar-item w3-button">Home</a>
-        <a href="resume.html" class="w3-bar-item w3-button">Education/Experience</a>
-        <a href="TicTacToe.html" class="w3-bar-item w3-button">Tic-Tac-Toe</a>
-        <a href="#" class="w3-bar-item w3-button">Link 3</a>
-      </div>
-
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Skills and Education</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Keiser University(GPA: 3.5)</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>March 2022</h6>
-
-            <li>Programming Languages: C, C#, Java, JavaScript, Kotlin, SQL</li>
-            <li>Operating Systems: Windows 10, Linux</li>
-            <li>Web-based Development: HTML, CSS, REACT, Node.js, MongoDB</li>
-            <li>Software Tools: Microsoft Office Suite, Adobe Photoshop, Adobe Dreamweaver</li>
-            <li>Software IDEs: Eclipse, JavaBeans, Intellij, JGrasp, Android Studio </li>
-            <li><b>Specialized Courses:</b></li>
-            <ul style="columns:3;">
-              <li>Software Design</li>
-              <li>Software Testing</li>
-              <li>Specifications of Software Systems</li>
-              <li>Web Software Development</li>
-              <li>Distributed Systems</li>
-              <li>Mobile Application Development</li>
-              <li>Human-Computer Interface Design</li>
-              <li>Cloud Computing</li>
-              <li>Database Management Systems</li>
-              <li>Parallel Processing</li>
-            <hr>
-        </div>
-
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Pasco Hernando State College (GPA: 3.5)</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2017</h6>
-          <p>Associate of Arts - General Studies</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Wiregrass Ranch High School (GPA: 3.8)</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2013</h6>
-          <p>High School Diploma - Information Technology</p>
-          <li>Enrolled in Information Technology Academy, including dual enrollment web design classes at PHSC</li>
-          <li>Learned extensive HTML and CSS all 4 years.</li>
-          <li>Created websites, animated video clips, and logos for the IT Academy which were published onto the school’s website.</li>
-          <li>Certified in Adobe Dreamweaver</li>
-          <li>Certified in Adobe Flash</li>
-          <li>Certified in Adobe Photoshop</li>
-          <br><br>
-        </div>
-      </div>
-
-      <div class="w3-container w3-card w3-white">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Cell Phone Repair Technician - Gadget Repair</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2017 – July 2019</h6>
-          <li>Fixed roughly 10-20 cell phones, tablets, and other electronic devices daily.</li>
-          <li>Managed eBay sales and purchases.</li>
-          <li>Managed store inventory to ensure proper stock was maintained.</li>
-        </br>
-          <li>This was a pretty independent role usually only one technician and a computer repair specialist were working at a time.  This role taught me some really valuable troubleshooting techniques that have carried over into personal hobbies that I enjoy on my free time.  Being able to diagnose hardware effectively is a valuable skill for me.</li>
-          </p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Cell Phone Repair Technician - Dr. Phone Fix</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>October 2017 – May 2017</h6>
-          <li>Learned to diagnose problems on iPhones and Android devices.</li>
-          <li>Changed screens, batteries, charging ports, motherboards.</li>
-          <li>Handled product inventory and sales.</li>
-        </br>
-          <li>This was my first job working with technology and I loved every bit of it.  I excelled at it compared to my co-workers and picked up everything I needed to know  very quick.  The management was very limiting on what we could do as repair technicians and it got to a point where all we repaired were screens, if they were able to supply us with enough between all the stores.  I opted to work at Gadget Repair instead who offered a lot more extensive services and where I could really grow my skillset and further my potential as someone who (back then, and still to this day) aspired to be a software engineer working on the front lines of cutting edge technology.</li>
-          </p>
-          <hr>
-        </div>
-      </div>
-
-    <!-- End Right Column -->
     </div>
+    <!-- Footer -->
+    <footer class="w3-container w3-black">
+      <script>
+        const color = randomColor({count: 6});
+        
+        document.querySelector(".box1").style.backgroundColor = color[0];
+        document.querySelector(".box2").style.backgroundColor = color[1];
+        document.querySelector(".box3").style.backgroundColor = color[2];
+        document.querySelector(".box4").style.backgroundColor = color[3];
+        document.querySelector(".box5").style.backgroundColor = color[4];
+        document.querySelector(".box6").style.backgroundColor = color[5];
 
-  <!-- End Grid -->
-  </div>
+        </script>
 
-  <!-- End Page Container -->
-</div>
-
-<footer class="w3-container w3-teal w3-center w3-margin-top">
-  <p>Website styles powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
-
-</body>
+    </footer>
+  </body>
 </html>

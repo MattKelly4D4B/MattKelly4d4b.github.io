@@ -10,9 +10,10 @@ let h; // = height / 3;
 let ai = "X";
 let human = "O";
 let currentPlayer = human;
+const TTTcolor = "#" + Math.floor(Math.random() * 16777215).toString(16);
 
 function setup() {
-  let myCanvas = createCanvas(200, 200);
+  let myCanvas = createCanvas(450, 300);
   myCanvas.parent("gameDiv");
   w = width / 3;
   h = height / 3;
@@ -79,7 +80,7 @@ function mousePressed() {
 }
 
 function draw() {
-  background(255);
+  background(TTTcolor);
   strokeWeight(4);
 
   line(w, 0, w, height);
