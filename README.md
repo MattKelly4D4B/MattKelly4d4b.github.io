@@ -1,2 +1,4 @@
 # mattkelly4d4b.github.io
-This is my simple portfolio website. It contains some extra goodies too. Its still a work in progress so some of the pages are the same. 
+This is my simple portfolio website. It contains some extra goodies too.
+It's not in any way designed to show off my front end or design skills, 
+but to serve as a page that demonstrates a few different coding techniques and skills.
